@@ -4,8 +4,10 @@ export function NoteTodosPreview({ info }) {
       <ul>
         {info.todos.map((todo, index) => (
           <li key={index}>
-            <input type='checkbox' checked={todo.doneAt} />
-            {todo.txt}
+            <div>
+              <input type='checkbox' checked={todo.doneAt} id="todo" />
+              <label for="todo">{todo.txt}</label>
+           </div>
           </li>
         ))}
       </ul>
