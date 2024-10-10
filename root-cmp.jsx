@@ -3,7 +3,7 @@ const Router = ReactRouterDOM.HashRouter
 
 import { AppHeader } from "./cmps/app-header.jsx"
 import { About } from "./pages/about.jsx"
-import { Home } from "./pages/home.jsx"
+import { Home } from "./pages/Home.jsx"
 import { MailIndex } from "./apps/mail/pages/mail-index.jsx"
 import { MailDetails } from "./apps/mail/pages/mail-details.jsx"
 import { NoteIndex } from "./apps/note/pages/note-index.jsx"
