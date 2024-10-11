@@ -6,7 +6,7 @@ import { AppHeader } from "./cmps/app-header.jsx"
 import { Home } from "./pages/Home.jsx"
 import { MailIndex } from "./apps/mail/pages/mail-index.jsx"
 import { MailDetails } from "./apps/mail/pages/mail-details.jsx"
-import { NoteIndex } from "./apps/note/pages/note-index.jsx"
+import { NoteIndex } from "./apps/note/pages/NoteIndex.jsx"
 
 
 
