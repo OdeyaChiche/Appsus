@@ -3,32 +3,42 @@
 .note-list {
   padding: 15px 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 250px));
   gap: 8px;
-  text-align: center;
 }
 
 .note-list li {
-  list-style-type: none;
   border-radius: 10px;
+  padding: 10px 15px;
+  height: auto;
+  min-height: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   background-color: pink;
-  padding-block: 0.2em;
 }
 
-.note-list li img{
- max-height: 70%;
+.txt-preview,
+.img-preview,
+.video-preview {
+  text-align: center;
 }
 
-.note-list li video{
-padding: 5px;
+.note-list li img {
+  max-height: 70%;
 }
 
-.todos-preview div{
-  
-   font-size: 15px; 
-  
+.note-list li video {
+  padding: 5px;
 }
+
+.todos-preview {
+  font-size: 15px;
+display: flex;
+}
+
+.checkbox-label {
+  align-items: left; }
+
+input[type="checkbox"] {
+  margin-right: 10px; 
+} 
