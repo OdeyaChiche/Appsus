@@ -1,5 +1,4 @@
 // note service
-<<<<<<< HEAD
 import { storageService } from '../../../services/async-storage.service.js'
 import { utilService } from '../../../services/util.service.js'
 
@@ -9,25 +8,23 @@ _createNotes()
 export const noteService = { query, addNote, getNotes }
 
 function query() {
-  
   let notes = utilService.loadFromStorage(NOTE_KEY)
-  
+
   return notes
 }
 
-function getNotes(){
+function getNotes() {
   return Promise.resolve(this.query())
   // let notes = utilService.loadFromStorage(NOTE_KEY)
   // return notes
 }
 
-
 function _createNotes() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
 
   if (!notes || !notes.length) {
-
     const notes = [
+      
       {
         id: '101',
         createdAt: 1112222,
@@ -39,7 +36,6 @@ function _createNotes() {
         info: {
           title: 'Are You Ready?',
           body: 'Fullstack Me Baby!',
-    
         },
       },
       {
@@ -61,45 +57,25 @@ function _createNotes() {
         type: 'NoteTodos',
         isPinned: false,
         info: {
-          title: 'Get my stuff together',
+          title: 'Tasks',
           todos: [
-            { txt: 'Driving license', doneAt: null },
-            { txt: 'Coding power', doneAt: 187111111 },
+            { txt: 'driving license', doneAt: null },
+            { txt: 'coding power', doneAt: 187111111 },
           ],
         },
       },
       {
-        id: '104',
-        createdAt: 1112225,
-        type: 'NoteVideo',
-        isPinned: false,
+        id: '105',
+        createdAt: 1112226,
+        type: 'NoteTxt',
+        isPinned: true,
+        style: {
+          backgroundColor: '#00d',
+        },
         info: {
-          url: 'https://www.youtube.com/watch?v=PT2_F-1esPk',
+          body: 'Fullstack Me Baby!',
         },
       },
-  {
-      id: '105',
-      createdAt: 1112226,
-=======
-import {storageService} from '../../../services/async-storage.service'
-
-export const noteService = { query }
-
-function query() {
-  const notes = [
-    {
-      id: 'n101',
-      createdAt: 1112222,
->>>>>>> mail-app
-      type: 'NoteTxt',
-      isPinned: true,
-      style: {
-        backgroundColor: '#00d',
-      },
-      info: {
-<<<<<<< HEAD
-        body: 'Fullstack Me Baby!',
-      }},
       {
         id: '106',
         createdAt: 1112227,
@@ -119,10 +95,10 @@ function query() {
         type: 'NoteTodos',
         isPinned: false,
         info: {
-          title: 'Get my stuff together',
+          title: 'Grocery',
           todos: [
-            { txt: 'Driving license', doneAt: null },
-            { txt: 'Coding power', doneAt: 187111111 },
+            { txt: 'milk', doneAt: null },
+            { txt: 'oil', doneAt: null },
           ],
         },
       },
@@ -137,71 +113,82 @@ function query() {
       },
     ]
 
-    console.log(notes)
-
     utilService.saveToStorage(NOTE_KEY, notes)
   }
 }
 
+function addNote(type, title, body) {
+  let notes = utilService.loadFromStorage(NOTE_KEY)
+  let note
+  let todos
 
-function addNote( title, body){
- let notes= utilService.loadFromStorage(NOTE_KEY)
-  const note= {
-    id: `${100+ notes.length+1}`,
-    createdAt: notes[notes.length-1].createdAt++,
-    type: 'NoteTxt',
-    isPinned: false,
-    style: {
-      backgroundColor: utilService.getRandomColor(),
-    },
-    info: {
-      title,
-      body
-    }}
-    
- return storageService.post(NOTE_KEY, note)
-}
-=======
-        txt: 'Fullstack Me Baby!',
-      },
-    },
-    {
-      id: 'n102',
-      createdAt: 1112223,
-      type: 'NoteImg',
-      isPinned: false,
-      info: {
-        url: 'https://incognitoinventions.com/wp-content/uploads/2019/04/02-Types-of-Best-Girlfriends-Every-Adult-Woman-Should-Have_back-in-the-day_89510529_Todor-Tsvetkov-805x452.jpg',
-        title: 'Sara and Me',
-      },
-      style: {
-        backgroundColor: '#00d',
-      },
-    },
-    {
-      id: 'n103',
-      createdAt: 1112224,
-      type: 'NoteTodos',
-      isPinned: false,
-      info: {
-        title: 'Get my stuff together',
-        todos: [
-          { txt: 'Driving license', doneAt: null },
-          { txt: 'Coding power', doneAt: 187111111 },
-        ],
-      },
-    },
-    {
-        id: 'n104',
-        createdAt: 1112225,
+  switch (type) {
+    case 'NoteTxt':
+      note = {
+        id: `${100 + notes.length + 1}`,
+        createdAt: notes[notes.length - 1].createdAt++,
+        type: 'NoteTxt',
+        isPinned: false,
+        style: {
+          backgroundColor: utilService.getRandomColor(),
+        },
+        info: {
+          title,
+          body,
+        },
+      }
+      break
+    case 'NoteImg':
+      note = {
+        id: `${100 + notes.length + 1}`,
+        createdAt: notes[notes.length - 1].createdAt++,
+        type: 'NoteImg',
+        isPinned: false,
+        style: {
+          backgroundColor: utilService.getRandomColor(),
+        },
+        info: {
+          url: body,
+          title,
+        },
+      }
+      break
+    case 'NoteVideo':
+      note = {
+        id: `${100 + notes.length + 1}`,
+        createdAt: notes[notes.length - 1].createdAt++,
         type: 'NoteVideo',
         isPinned: false,
-        info: {
-            url: 'https://www.youtube.com/watch?v=PT2_F-1esPk'
+        style: {
+          backgroundColor: utilService.getRandomColor(),
         },
-      },
-  ]
+        info: {
+          url: body,
+        },
+      }
+      break
+    case 'NoteTodos':
+      let todos = body.split(',')
+      let noteTodos = todos.map((todo) => {
+        ;` txt: ${todo}, doneAt: null`
+      })
 
-  return notes
+      note = {
+        id: `${100 + notes.length + 1}`,
+        createdAt: notes[notes.length - 1].createdAt++,
+        type: 'NoteTodos',
+        isPinned: false,
+        style: {
+          backgroundColor: utilService.getRandomColor(),
+        },
+        info: {
+          title: title,
+          todos: [noteTodos],
+        },
+      }
+      break
+    default:
+      return <div>Unknown Note Type</div>
+  }
+  return storageService.post(NOTE_KEY, note)
 }
->>>>>>> mail-app
