@@ -1,0 +1,19 @@
+.note-input{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .input {
+  width: 70%;
+  }
+  
+  .buttons{
+    margin: auto 5px;
+  }
+  
+  .buttons button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+  }

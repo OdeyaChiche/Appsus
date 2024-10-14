@@ -4,6 +4,7 @@
   padding: 15px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 250px));
+  grid-auto-columns: auto;
   gap: 8px;
 }
 
@@ -41,4 +42,6 @@ display: flex;
 
 input[type="checkbox"] {
   margin-right: 10px; 
-} 
+}
+
+

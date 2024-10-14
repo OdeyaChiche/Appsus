@@ -130,6 +130,7 @@ function _createNotes() {
   }
 }
 
+
 function addNote( title, body){
  let notes= utilService.loadFromStorage(NOTE_KEY)
   const note= {
