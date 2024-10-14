@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .note-index {
   height: 100vh;
   background-color: rgb(236, 234, 234);
@@ -31,3 +32,68 @@
 input:focus {
   outline: none;
 }
+=======
+/* note index */
+/* .add-note-body {
+  min-width: 60%;
+  border-radius: 6px;
+  border: 2px solid rgba(186, 184, 184, 0.685);
+  margin: 20px auto;
+  padding: 7px;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2); 
+  display: block;
+}
+
+.add-note-title {
+    min-width: 60%;
+    border-radius: 6px;
+    border: 2px solid rgba(186, 184, 184, 0.685);
+    margin: 20px auto;
+    padding: 7px;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.2); 
+
+  } */
+
+/* .add-note-body input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+   */
+  /* .add-note-title {
+    display: block;
+  } */
+  
+
+
+  .add-note {
+    border: 1px solid #ccccccc7;
+    padding: 10px;
+    border-radius: 6px;
+    min-width:60%;
+    margin: 20px;
+    box-shadow: 0px 0px 8px rgba(0,0,0,0.2);
+  }
+  
+  .add-note input {
+    /* display: block; */
+    width: 95%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-note-title {
+    display: block;
+  }
+  
+  .add-note-body {
+    display: block;
+  }
+>>>>>>> mail-app

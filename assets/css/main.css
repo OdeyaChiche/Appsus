@@ -16,11 +16,17 @@
 
 @import './apps/mail/pages/mail-index.css';
 @import './apps/mail/cmps/mail-list.css';
+<<<<<<< HEAD
 
 
 @import './apps/note/pages/NoteIndex.css';
 
+=======
+>>>>>>> mail-app
 
+
+@import './apps/note/pages/NoteIndex.css';
+@import './apps/note/cmps/NoteList.css';
 /* Cmps */
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
