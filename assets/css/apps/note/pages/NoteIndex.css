@@ -1,11 +1,12 @@
-.note-index {
+div.note-index {
   height: 100vh;
   background-color: rgb(236, 234, 234);
+  margin: 0px;
 }
 
 .add-note {
   border-radius: 7px;
-  margin: 25px auto;
+  margin: 0px auto;
   padding: 4px 0;
   width: 35%;
   min-width: 600px;
