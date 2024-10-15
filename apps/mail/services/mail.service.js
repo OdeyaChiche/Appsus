@@ -86,71 +86,70 @@ function getEmptyMailToSend(){
 
 
 function _createMails() {
-  let mails = utilService.loadFromStorage(MAIL_KEY)
+  let mails = utilService.loadFromStorage(MAIL_KEY);
   if (!mails || !mails.length) {
     mails = [
       {
         id: 'e101',
-        subject: 'Miss you!',
-        from: 'shani',
-        fromEmail: 'shanissss@gmail.com',
-        body: 'Would like to catch up sometimes i missed you you stupid little man how are you ',
+        subject: '🚀 Invitation to Join a Space Mission!',
+        from: 'NASA',
+        fromEmail: 'info@nasa.gov',
+        body: 'Hello! We are looking for brave participants to join an extraordinary space mission. Ready for an adventure among the stars?',
         isRead: false,
-        sentAt: 1672228849000,
-        to: 'momo@momo.com',
+        sentAt: Date.now(),
+        to: 'you@dreamer.com',
         status: 'inbox',
         isStared: true
       },
       {
         id: 'e102',
-        subject: 'Love you!',
-        from: 'shani',
-        fromEmail: 'shanissss@gmail.com',
-        body: 'Would LOVE to catch up sometimes',
+        subject: '📢 End-of-Season Sale at DreamShop!',
+        from: 'DreamShop',
+        fromEmail: 'sales@dreamshop.com',
+        body: 'All your dreams are now on sale! Don’t miss your chance to make them come true with a 50% discount!',
         isRead: true,
-        sentAt: 1672056049000,
-        to: 'momo@momo.com',
+        sentAt: Date.now(),
+        to: 'you@dreamer.com',
         status: 'inbox',
         isStared: false
       },
       {
         id: 'e103',
-        subject: 'Hate you!',
-        from: 'shani',
-        fromEmail: 'shanissss@gmail.com',
-        body: 'Would NOT want to catch up sometimes',
+        subject: '💥 Breaking News: Prime Minister Resigns!',
+        from: '24/7 News',
+        fromEmail: 'news@247.com',
+        body: 'The Prime Minister has announced an immediate resignation via email to close allies. Find out more inside!',
         isRead: false,
-        sentAt: 1671883249000,
-        to: 'momo@momo.com',
+        sentAt: Date.now(),
+        to: 'you@dreamer.com',
         status: 'sent',
         isStared: false
       },
       {
         id: 'e104',
-        subject: 'Hey you!',
-        from: 'shani',
-        fromEmail: 'shanissss@gmail.com',
-        body: 'How you Doin',
+        subject: '🍕 Pizza Special: Two for the Price of One!',
+        from: 'PizzaWorld',
+        fromEmail: 'promo@pizzaworld.com',
+        body: 'Order today and get a second pizza for free! Offer valid until midnight.',
         isRead: true,
-        sentAt: 1671883239000,
-        to: 'momo@momo.com',
+        sentAt: Date.now(),
+        to: 'you@dreamer.com',
         status: 'inbox',
         isStared: true
       },
       {
         id: 'e105',
-        subject: 'not you!',
-        from: 'shani',
-        fromEmail: 'shanissss@gmail.com',
-        body: 'wrong email... i am a long long span to check if the css shit is still working and how is it',
+        subject: '📅 Meet Albert Einstein in Person!',
+        from: 'Time Museum',
+        fromEmail: 'info@timemuseum.com',
+        body: 'An exclusive virtual meeting with Albert Einstein is waiting for you. Discover the secrets of time!',
         isRead: true,
-        sentAt: 1671883149000,
-        to: 'momo@momo.com',
+        sentAt: Date.now(),
+        to: 'you@dreamer.com',
         status: 'sent',
         isStared: true
       }
-
-    ]
+    ];
   }
-  utilService.saveToStorage(MAIL_KEY, mails)
+  utilService.saveToStorage(MAIL_KEY, mails);
 }
