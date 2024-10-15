@@ -1,5 +1,5 @@
 
-export function NoteImgPreview({ info }) {
+export function NoteImgPreview({ info, noteId }) {
 
     return (
         <article className="note img-preview">

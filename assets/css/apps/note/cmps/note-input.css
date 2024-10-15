@@ -1,19 +1,34 @@
-.note-input{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  
-  .input {
+.note-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.input {
   width: 70%;
-  }
-  
-  .buttons{
-    margin: auto 5px;
-  }
-  
-  .buttons button{
-    border: none;
-    background-color: white;
-    cursor: pointer;
-  }
+}
+
+.buttons {
+  margin: auto 5px;
+}
+
+.buttons button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+.save-note {
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: 1px solid rgb(251, 212, 97);
+  background-color: rgb(251, 212, 97);
+  justify-content: end;
+  align-items: end;
+  cursor: pointer;
+}
+
+.save-note:hover {
+  background-color: rgb(255, 192, 4);
+}

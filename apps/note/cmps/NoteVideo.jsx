@@ -1,5 +1,5 @@
 
-export function NoteVideoPreview({ info }) {
+export function NoteVideoPreview({ info, noteId }) {
   return (
     <article className='note video-preview'>
       <video controls width='80%'>

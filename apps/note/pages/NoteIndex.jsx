@@ -1,4 +1,4 @@
-const { useEffect, useState, useRef } = React
+const { useEffect, useState } = React
 
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
@@ -12,9 +12,6 @@ export function NoteIndex() {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [placeholder, setPlaceHolder] = useState('Enter your note...')
-
-  const titleRef = useRef(null)
-  const bodyRef = useRef(null)
 
   function onRemoveNote(noteId) {
     console.log('removed')
@@ -38,19 +35,10 @@ export function NoteIndex() {
     setBody('')
   }
 
-  const handleBlur = () => {
-    if (
-      document.activeElement !== titleRef.current &&
-      document.activeElement !== bodyRef.current
-    ) {
-      onAddNote(noteType)
-      // setIsExpanded(false)
-    }
-  }
-
   const handleButtonClick = (type, placeholderText) => {
     setNoteType(type)
     setPlaceHolder(placeholderText)
+    clearInputFields()
   }
 
   const expandNote = () => {
@@ -72,8 +60,6 @@ export function NoteIndex() {
                 placeholder='Title'
                 value={title}
                 onChange={(ev) => setTitle(ev.target.value)}
-                onBlur={handleBlur}
-                ref={titleRef}
                 className='add-note-title'
               />
             )}
@@ -83,8 +69,6 @@ export function NoteIndex() {
               value={body}
               onFocus={expandNote}
               onChange={(ev) => setBody(ev.target.value)}
-              onBlur={handleBlur}
-              ref={bodyRef}
               className='add-note-body'
             />{' '}
           </div>
@@ -100,7 +84,7 @@ export function NoteIndex() {
             <button
               onClick={() => {
                 setNoteType('NoteVideo')
-                handleButtonClick('NoteVideo', 'Add video URL')
+                handleButtonClick('NoteVideo', 'Add video URL...')
               }}
             >
               <i className='fa-brands fa-youtube'></i>
@@ -108,7 +92,7 @@ export function NoteIndex() {
             <button
               onClick={() => {
                 setNoteType('NoteImg')
-                handleButtonClick('NoteImg', 'Add image URL')
+                handleButtonClick('NoteImg', 'Add image URL...')
               }}
             >
               <i className='fa-regular fa-image'> </i>
@@ -116,13 +100,14 @@ export function NoteIndex() {
             <button
               onClick={() => {
                 setNoteType('NoteTodos')
-                handleButtonClick('NoteTodos', 'Add a comma seperated list')
+                handleButtonClick('NoteTodos', 'Add a comma seperated list...')
               }}
             >
               <i className='fa-solid fa-list'></i>
             </button>
           </div>
         </div>
+<button type="button"  onClick={() => onAddNote(noteType)} className='save-note '>Save</button>
       
       </div>
       <NoteList notes={notes} />
