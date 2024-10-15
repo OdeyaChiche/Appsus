@@ -5,7 +5,7 @@ import { utilService } from '../../../services/util.service.js'
 const NOTE_KEY = 'noteDB'
 _createNotes()
 
-export const noteService = { query, addNote, getNotes }
+export const noteService = { query, addNote, getNotes, updateNote }
 
 function query() {
   let notes = utilService.loadFromStorage(NOTE_KEY)
@@ -24,7 +24,6 @@ function _createNotes() {
 
   if (!notes || !notes.length) {
     const notes = [
-      
       {
         id: '101',
         createdAt: 1112222,
@@ -65,7 +64,7 @@ function _createNotes() {
         },
       },
       {
-        id: '105',
+        id: '104',
         createdAt: 1112226,
         type: 'NoteTxt',
         isPinned: true,
@@ -77,20 +76,20 @@ function _createNotes() {
         },
       },
       {
-        id: '106',
+        id: '105',
         createdAt: 1112227,
         type: 'NoteImg',
         isPinned: false,
         info: {
-          url: 'https://incognitoinventions.com/wp-content/uploads/2019/04/02-Types-of-Best-Girlfriends-Every-Adult-Woman-Should-Have_back-in-the-day_89510529_Todor-Tsvetkov-805x452.jpg',
-          title: 'Sara and Me',
+          url: 'https://www.simplyrecipes.com/thmb/KE6iMblr3R2Db6oE8HdyVsFSj2A=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__simply_recipes__uploads__2019__09__easy-pepperoni-pizza-lead-3-1024x682-583b275444104ef189d693a64df625da.jpg',
+          title: 'Vibe',
         },
         style: {
           backgroundColor: '#00d',
         },
       },
       {
-        id: '107',
+        id: '106',
         createdAt: 1112228,
         type: 'NoteTodos',
         isPinned: false,
@@ -99,11 +98,17 @@ function _createNotes() {
           todos: [
             { txt: 'milk', doneAt: null },
             { txt: 'oil', doneAt: null },
+            { txt: 'sugar', doneAt: null },
+            { txt: 'coffee', doneAt: null },
+            { txt: 'paper towl', doneAt: null },
+            { txt: 'coke', doneAt: null },
+            { txt: 'cereal', doneAt: null },
+            { txt: 'rice', doneAt: null },
           ],
         },
       },
       {
-        id: '108',
+        id: '107',
         createdAt: 1112229,
         type: 'NoteVideo',
         isPinned: false,
@@ -121,6 +126,11 @@ function addNote(type, title, body) {
   let notes = utilService.loadFromStorage(NOTE_KEY)
   let note
   let todos
+  let noteTodos
+  if (type === 'NoteTodos') {
+    todos = body.split(',').map((todo) => todo.trim())
+    noteTodos = todos.map((todo) => ({ txt: todo, doneAt: null }))
+  }
 
   switch (type) {
     case 'NoteTxt':
@@ -168,11 +178,6 @@ function addNote(type, title, body) {
       }
       break
     case 'NoteTodos':
-      let todos = body.split(',')
-      let noteTodos = todos.map((todo) => {
-        ;` txt: ${todo}, doneAt: null`
-      })
-
       note = {
         id: `${100 + notes.length + 1}`,
         createdAt: notes[notes.length - 1].createdAt++,
@@ -182,13 +187,31 @@ function addNote(type, title, body) {
           backgroundColor: utilService.getRandomColor(),
         },
         info: {
-          title: title,
+          title,
           todos: [noteTodos],
         },
       }
+      console.log(note)
+
       break
     default:
       return <div>Unknown Note Type</div>
   }
+ 
   return storageService.post(NOTE_KEY, note)
+   
+}
+
+function updateNote(updatedTodos, noteId){
+  let notes = utilService.loadFromStorage(NOTE_KEY) || []
+  let noteIdx= notes.findIndex(note => note.id === noteId);
+console.log(noteIdx);
+
+
+
+  notes[noteIdx].info.todos= updatedTodos
+
+  utilService.saveToStorage(NOTE_KEY, notes)
+  console.log('updated');
+  
 }

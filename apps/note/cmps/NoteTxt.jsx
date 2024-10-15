@@ -1,4 +1,4 @@
-export function NoteTxtPreview({ info }) {
+export function NoteTxtPreview({ info, noteId }) {
   return (
     <article className='note txt-preview'>
       <div>
