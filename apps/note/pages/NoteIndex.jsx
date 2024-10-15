@@ -3,6 +3,8 @@ const { useEffect, useState } = React
 import { noteService } from '../services/note.service.js'
 import { NoteList } from '../cmps/NoteList.jsx'
 import { NoteHeader } from '../cmps/NoteHeader.jsx'
+import { NoteSidebar } from '../cmps/NoteSidebar.jsx'
+
 
 export function NoteIndex() {
   const [notes, setNotes] = useState(noteService.query())
@@ -50,6 +52,8 @@ export function NoteIndex() {
   return (
     <section >
       <NoteHeader />
+      <div className="notes-body">
+      <NoteSidebar/>
       <div className='note-index'>
       <div className='add-note'>
         <div className='note-input'>
@@ -111,6 +115,7 @@ export function NoteIndex() {
       
       </div>
       <NoteList notes={notes} />
+      </div>
       </div>
     </section>
   )

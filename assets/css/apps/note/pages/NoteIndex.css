@@ -32,3 +32,57 @@ div.note-index {
 input:focus {
   outline: none;
 }
+
+.notes-body{
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(236, 234, 234);
+}
+
+.sidebar-container{
+  height: 100vh;
+  background-color: white;
+  list-style: none;
+  padding: 0px 5px;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.3s;
+  overflow: hidden; 
+  position: relative;
+}
+
+.sidebar-container li{
+  border-radius: 5px;
+  padding: 10px 5px;
+ 
+}
+
+.sidebar-container li:hover{
+  background-color: rgb(210, 209, 209);
+}
+
+.icon-container {
+  position: relative;
+  width: 100%;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 24px; 
+}
+
+.tooltip {
+  margin-left: 10px;
+  opacity: 0;
+  color: black; 
+  font-size: 16px;
+  transition: opacity 0.3s; 
+}
+
+
+.icon-container:hover .tooltip {
+  opacity: 1; 
+}
