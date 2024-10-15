@@ -2,6 +2,8 @@
     margin-top: 0;
     padding: 0;
     list-style: none;
+    width: 100%;
+    padding-right: 20px;
 }
 
 
@@ -10,6 +12,7 @@
 font-size: 1.2rem;
 align-self: center;
 cursor: pointer;
+color: rgb(93, 93, 93);
 
 }
 
@@ -20,7 +23,32 @@ cursor: pointer;
     margin-bottom: 0.5rem;
     cursor: pointer;
     font-size: 0.8rem;
+    width: 100%;
+    margin: 0;
+    /* padding-left: 4rem; */
+    padding: 3px 0 3px 4rem;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    color: rgb(52, 52, 52);
 }
+
+
+
+
+
+
+.folder-list-item:hover{
+    background-color: rgb(228, 228, 228);
+    
+}
+
+.folder-list-item.checked{
+    background-color: #d3e3fd;
+    font-weight: bold;
+
+}
+
+
 
 .compose-btn{
     margin-bottom: 0.5rem;
@@ -43,4 +71,10 @@ cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+@media (max-width: 560px) {
+    .folder-list-item{
+        padding-left: 2rem;
+    }
 }
